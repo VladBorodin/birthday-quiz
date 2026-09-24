@@ -1,0 +1,32 @@
+{
+  "birthdays": [
+    {
+      "id": "tatiana",
+      "name": "Беседина Татьяна Денисовна",
+      "displayName": "Татьяна",
+      "participationMode": "office",
+      "teamId": "tatiana"
+    },
+    {
+      "id": "stas",
+      "name": "Власов Станислав Артемович",
+      "displayName": "Стас",
+      "participationMode": "remote",
+      "teamId": "stas"
+    },
+    {
+      "id": "slava",
+      "name": "Кислов Вячеслав Сергеевич",
+      "displayName": "Слава",
+      "participationMode": "office",
+      "teamId": "slava"
+    },
+    {
+      "id": "marina",
+      "name": "Кокорина Марина Юрьевна",
+      "displayName": "Марина",
+      "participationMode": "office",
+      "teamId": "marina"
+    }
+  ]
+}

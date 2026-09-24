@@ -1,0 +1,142 @@
+{
+  "employees": [
+    {
+      "id": "volodina_irina",
+      "name": "Володина Ирина Александровна",
+      "participationMode": "remote",
+      "enabled": true
+    },
+    {
+      "id": "dyakova_olga",
+      "name": "Дьякова Ольга Сергеевна",
+      "participationMode": "office",
+      "enabled": true
+    },
+    {
+      "id": "zhivoderov_pavel",
+      "name": "Живодеров Павел Максимович",
+      "participationMode": "office",
+      "enabled": true
+    },
+    {
+      "id": "zabarov_ildar",
+      "name": "Забаров Ильдар Шамилевич",
+      "participationMode": "office",
+      "enabled": true
+    },
+    {
+      "id": "ivakina_elena",
+      "name": "Ивакина Елена Андреевна",
+      "participationMode": "remote",
+      "enabled": true
+    },
+    {
+      "id": "iskakov_vinir",
+      "name": "Искаков Винир Вагизович",
+      "participationMode": "office",
+      "enabled": true
+    },
+    {
+      "id": "kislov_alexander",
+      "name": "Кислов Александр Сергеевич",
+      "participationMode": "office",
+      "enabled": true
+    },
+    {
+      "id": "martynov_sergey",
+      "name": "Мартынов Сергей Сергеевич",
+      "participationMode": "office",
+      "enabled": true
+    },
+    {
+      "id": "martynova_irina",
+      "name": "Мартынова Ирина Евгеньевна",
+      "participationMode": "office",
+      "enabled": true
+    },
+    {
+      "id": "nebykov_dmitry",
+      "name": "Небыков Дмитрий Юрьевич",
+      "participationMode": "remote",
+      "enabled": true
+    },
+    {
+      "id": "palagin_vadim",
+      "name": "Палагин Вадим Игоревич",
+      "participationMode": "office",
+      "enabled": true
+    },
+    {
+      "id": "pankova_lilia",
+      "name": "Панкова Лилия Фидаильевна",
+      "participationMode": "office",
+      "enabled": true
+    },
+    {
+      "id": "perelygin_maxim",
+      "name": "Перелыгин Максим Александрович",
+      "participationMode": "office",
+      "enabled": true
+    },
+    {
+      "id": "plekhanova_anna",
+      "name": "Плеханова Анна Александровна",
+      "participationMode": "office",
+      "enabled": true
+    },
+    {
+      "id": "seisenova_evgenia",
+      "name": "Сейсенова Евгения Ильинична",
+      "participationMode": "remote",
+      "enabled": true
+    },
+    {
+      "id": "senin_artem",
+      "name": "Сенин Артем Игоревич",
+      "participationMode": "remote",
+      "enabled": true
+    },
+    {
+      "id": "skokov_sergey",
+      "name": "Скоков Сергей Александрович",
+      "participationMode": "office",
+      "enabled": true
+    },
+    {
+      "id": "starodubtseva_irina",
+      "name": "Стародубцева Ирина Анатольевна",
+      "participationMode": "office",
+      "enabled": true
+    },
+    {
+      "id": "tagirov_timur",
+      "name": "Тагиров Тимур Владиславович",
+      "participationMode": "remote",
+      "enabled": true
+    },
+    {
+      "id": "fedorov_sergey",
+      "name": "Федоров Сергей Владимирович",
+      "participationMode": "office",
+      "enabled": true
+    },
+    {
+      "id": "khmelev_egor",
+      "name": "Хмелёв Егор Анатольевич",
+      "participationMode": "office",
+      "enabled": true
+    },
+    {
+      "id": "tsoi_natalia",
+      "name": "Цой Наталья Валериевна",
+      "participationMode": "office",
+      "enabled": true
+    },
+    {
+      "id": "yakovleva_elena",
+      "name": "Яковлева Елена Александровна",
+      "participationMode": "office",
+      "enabled": true
+    }
+  ]
+}
