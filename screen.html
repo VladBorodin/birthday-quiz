@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>День именинника — экран зрителей</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/screen.css" />
+</head>
+<body class="screen-page">
+  <main class="screen-shell">
+    <header id="miniScoreboard" class="mini-scoreboard"></header>
+
+    <section id="stage" class="stage">
+      <div class="stage-kicker" id="stageKicker">День именинника</div>
+      <h1 id="stageTitle">Сентябрь</h1>
+      <div id="stageSubtitle" class="stage-subtitle">Добро пожаловать!</div>
+
+      <div id="bigScoreboard" class="big-scoreboard hidden"></div>
+
+      <div id="bigTimer" class="big-timer hidden">
+        <div id="bigTimerValue" class="big-timer-value">00:30</div>
+      </div>
+    </section>
+
+    <footer class="timer-strip">
+      <div class="timer-strip-meta">
+        <span id="timerStripLabel">Таймер</span>
+        <strong id="timerStripValue">00:30</strong>
+      </div>
+      <div class="timer-track">
+        <div id="timerProgress" class="timer-progress"></div>
+      </div>
+    </footer>
+  </main>
+
+  <audio id="timerEndSound" preload="auto"></audio>
+
+  <script src="data/structure.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/sync.js"></script>
+  <script src="js/screen.js"></script>
+</body>
+</html>

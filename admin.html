@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>День именинника — пульт ведущего</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body class="admin-page">
+  <header class="admin-header">
+    <div>
+      <div class="eyebrow">ДЕНЬ ИМЕНИННИКА · СЕНТЯБРЬ</div>
+      <h1>Пульт ведущего</h1>
+    </div>
+    <div class="header-actions">
+      <span id="syncStatus" class="status-pill">Синхронизация…</span>
+      <button id="openScreenBtn" class="button button-secondary">Открыть экран зрителей</button>
+    </div>
+  </header>
+
+  <main class="admin-layout">
+    <section class="panel teams-panel">
+      <div class="panel-heading">
+        <div>
+          <div class="eyebrow">1 · КОМАНДЫ</div>
+          <h2>Счёт и активная команда</h2>
+        </div>
+        <button id="addTeamBtn" class="button button-small">+ Добавить команду</button>
+      </div>
+      <div id="teamsAdmin" class="team-list"></div>
+    </section>
+
+    <section class="panel switcher-panel">
+      <div class="panel-heading">
+        <div>
+          <div class="eyebrow">2 · ПЕРЕКЛЮЧЕНИЯ</div>
+          <h2>Сцены и игры</h2>
+        </div>
+      </div>
+
+      <div class="subheading">Системные экраны</div>
+      <div id="systemScreens" class="system-screen-grid"></div>
+
+      <div class="subheading games-title">Игры</div>
+      <div id="gameTabs" class="game-tabs"></div>
+      <div id="gameSceneList" class="game-scene-list"></div>
+    </section>
+
+    <section class="panel control-panel">
+      <div class="panel-heading">
+        <div>
+          <div class="eyebrow">3 · БАЗОВОЕ УПРАВЛЕНИЕ</div>
+          <h2>Текущая сцена</h2>
+        </div>
+      </div>
+
+      <div class="current-scene-card">
+        <div id="currentScope" class="current-scope">Системный экран</div>
+        <div id="currentPrimary" class="current-primary">Заставка</div>
+        <div id="currentSecondary" class="current-secondary">—</div>
+      </div>
+
+      <div class="nav-actions">
+        <button id="prevSceneBtn" class="button button-secondary">← Назад</button>
+        <button id="nextSceneBtn" class="button">Далее →</button>
+      </div>
+
+      <section id="gameAdminInfo" class="game-admin-info hidden" aria-live="polite"></section>
+
+      <div class="timer-control">
+        <div class="timer-control-top">
+          <label class="field compact">
+            <span>Время, сек.</span>
+            <input id="timerSecondsInput" type="number" min="1" max="600" value="30" />
+          </label>
+
+          <label class="check-field">
+            <input id="timerSoundToggle" type="checkbox" checked />
+            <span>Сигнал по окончании</span>
+          </label>
+        </div>
+
+        <div class="timer-actions">
+          <button id="timerStartBtn" class="button">Старт</button>
+          <button id="timerPauseBtn" class="button button-secondary">Пауза</button>
+          <button id="timerResetBtn" class="button button-secondary">Сброс</button>
+          <button id="showTimerBtn" class="button button-secondary">Вывести таймер</button>
+        </div>
+
+        <div id="timerAdminReadout" class="timer-readout">00:30</div>
+      </div>
+    </section>
+
+    <section class="panel preview-panel">
+      <div class="panel-heading">
+        <div>
+          <div class="eyebrow">4 · ТРАНСЛЯЦИЯ</div>
+          <h2>То, что сейчас видят зрители</h2>
+        </div>
+      </div>
+
+      <div class="preview-shell">
+        <iframe id="broadcastPreview" src="screen.html" title="Предпросмотр трансляции"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <script src="data/structure.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/sync.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
