@@ -62,6 +62,65 @@
     extra.appendChild(frame);
   }
 
+  function getCurrentImage(task, sceneId) {
+    if (!task) return null;
+
+    return sceneId === "original"
+      ? {
+          src: task.originalImage,
+          alt: `Оригинал: ${task.title}`
+        }
+      : {
+          src: task.editedImage,
+          alt: `Изменённое изображение, задание ${task.order}`
+        };
+  }
+
+  function ensureModal() {
+    let modal = document.querySelector("#imageQuizModal");
+
+    if (!modal) {
+      modal = document.createElement("div");
+      modal.id = "imageQuizModal";
+      modal.className = "image-quiz-modal hidden";
+      modal.innerHTML = `
+        <div class="image-quiz-modal-inner">
+          <img class="image-quiz-modal-image" alt="">
+        </div>
+      `;
+      document.body.appendChild(modal);
+    }
+
+    return modal;
+  }
+
+  function renderFullscreen(task, sceneId) {
+    const modal = ensureModal();
+    const fullscreen = state.imageQuiz?.fullscreen;
+
+    const enabled = Boolean(
+      fullscreen?.enabled &&
+      fullscreen.groupId === state.current.groupId &&
+      fullscreen.sceneId === state.current.sceneId
+    );
+
+    if (!enabled) {
+      modal.classList.add("hidden");
+      return;
+    }
+
+    const image = getCurrentImage(task, sceneId);
+    if (!image) {
+      modal.classList.add("hidden");
+      return;
+    }
+
+    const img = modal.querySelector(".image-quiz-modal-image");
+    img.src = image.src;
+    img.alt = image.alt;
+    modal.classList.remove("hidden");
+  }
+
   function renderRules() {
     const extra = clearExtra();
     els.stageKicker.textContent = `Конкурс №${data.competitionNumber} · ${data.title}`;
@@ -131,12 +190,17 @@
 
     document.body.dataset.gameMode = isImageQuiz ? "image-quiz" : "";
 
-    if (!isImageQuiz) return;
+    if (!isImageQuiz) {
+      ensureModal().classList.add("hidden");
+      return;
+    }
 
     els.bigScoreboard?.classList.add("hidden");
     els.bigTimer?.classList.add("hidden");
 
     if (state.current.groupId === "intro") {
+      ensureModal().classList.add("hidden");
+
       if (state.current.sceneId === "rules") {
         renderRules();
       } else {
@@ -149,6 +213,7 @@
     }
 
     if (state.current.groupId === "results") {
+      ensureModal().classList.add("hidden");
       clearExtra();
       els.stageKicker.textContent = `Конкурс №${data.competitionNumber} · ${data.title}`;
       els.stageTitle.textContent = "Конкурс завершён";
@@ -157,7 +222,10 @@
     }
 
     const task = getTask(state.current.groupId);
-    if (task) renderTask(task, state.current.sceneId);
+    if (task) {
+      renderTask(task, state.current.sceneId);
+      renderFullscreen(task, state.current.sceneId);
+    }
   }
 
   async function init() {

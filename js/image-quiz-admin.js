@@ -45,6 +45,32 @@
     setZoom(taskOrder, Math.round((current + delta) * 10) / 10);
   }
 
+  function isFullscreenForCurrentScene(state) {
+    const fullscreen = state.imageQuiz?.fullscreen;
+    return Boolean(
+      fullscreen?.enabled &&
+      fullscreen.groupId === state.current.groupId &&
+      fullscreen.sceneId === state.current.sceneId
+    );
+  }
+
+  function toggleFullscreen() {
+    api.commit(state => {
+      if (state.current.type !== "game" || state.current.gameId !== "game-1") return;
+
+      state.imageQuiz = state.imageQuiz || {};
+      const isCurrent = isFullscreenForCurrentScene(state);
+
+      state.imageQuiz.fullscreen = isCurrent
+        ? { enabled: false, groupId: null, sceneId: null }
+        : {
+            enabled: true,
+            groupId: state.current.groupId,
+            sceneId: state.current.sceneId
+          };
+    });
+  }
+
   function changeScore(teamId, delta) {
     api.commit(state => {
       const team = state.teams.find(item => item.id === teamId);
@@ -101,6 +127,7 @@
     const afterHint = sceneId === "hint";
     const original = sceneId === "original";
     const zoom = getZoom(state, task.order);
+    const fullscreen = isFullscreenForCurrentScene(state);
 
     root.classList.remove("hidden");
 
@@ -149,8 +176,11 @@
         </div>
         <div class="image-quiz-zoom-buttons">
           <button type="button" class="button button-secondary" data-image-zoom="out">−</button>
-          <button type="button" class="button button-secondary" data-image-zoom="fit">Вписать</button>
+          <button type="button" class="button button-secondary" data-image-zoom="reset">100%</button>
           <button type="button" class="button button-secondary" data-image-zoom="in">+</button>
+          <button type="button" class="button ${fullscreen ? "" : "button-secondary"}" data-image-zoom="fit">
+            ${fullscreen ? "Закрыть" : "⛶ Вписать"}
+          </button>
         </div>
       </div>
 
@@ -187,8 +217,9 @@
     root.querySelector('[data-image-action="original"]')?.addEventListener("click", () => goToScene("original"));
 
     root.querySelector('[data-image-zoom="out"]')?.addEventListener("click", () => changeZoom(task.order, -0.1));
-    root.querySelector('[data-image-zoom="fit"]')?.addEventListener("click", () => setZoom(task.order, 1));
+    root.querySelector('[data-image-zoom="reset"]')?.addEventListener("click", () => setZoom(task.order, 1));
     root.querySelector('[data-image-zoom="in"]')?.addEventListener("click", () => changeZoom(task.order, 0.1));
+    root.querySelector('[data-image-zoom="fit"]')?.addEventListener("click", toggleFullscreen);
 
     bindScoreButtons();
   }
