@@ -45,7 +45,15 @@
     state = QuizState.save(next);
     render();
     QuizSync.broadcastState(state);
+    window.dispatchEvent(new CustomEvent("quiz:state-changed", { detail: state }));
   }
+
+  // Small public bridge for optional admin modules (turn queue, team randomizer, etc.).
+  // The game state itself remains owned by this file, so extra modules cannot desync it.
+  window.AdminQuizAPI = {
+    getState: () => QuizState.clone(state),
+    commit
+  };
 
   function addTeam() {
     commit(s => {
