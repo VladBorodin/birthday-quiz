@@ -1,6 +1,8 @@
 (() => {
   let data = null;
   let state = QuizState.load();
+  let imageResizeObserver = null;
+  let imageFitFrame = null;
 
   const els = {
     stage: document.querySelector("#stage"),
@@ -35,6 +37,12 @@
   }
 
   function clearExtra() {
+    if (imageResizeObserver) {
+      imageResizeObserver.disconnect();
+      imageResizeObserver = null;
+      imageFitFrame = null;
+    }
+
     const extra = gameExtra();
     if (!extra) return null;
     extra.innerHTML = "";
@@ -48,10 +56,54 @@
     return Number.isFinite(zoom) ? Math.max(0.5, Math.min(1.8, zoom)) : 1;
   }
 
+  function fitImageIntoFrame(frame, img, taskOrder) {
+    if (!frame?.isConnected || !img.naturalWidth || !img.naturalHeight) return;
+
+    const box = frame.getBoundingClientRect();
+    if (box.width <= 0 || box.height <= 0) return;
+
+    // "contain": take the smaller scale so BOTH image dimensions fit.
+    const fitScale = Math.min(
+      box.width / img.naturalWidth,
+      box.height / img.naturalHeight
+    );
+
+    // 100% in the admin means "automatic best fit".
+    // +/- is an optional multiplier on top of that fitted size.
+    const zoom = getZoom(taskOrder);
+    const width = Math.max(1, img.naturalWidth * fitScale * zoom);
+    const height = Math.max(1, img.naturalHeight * fitScale * zoom);
+
+    img.style.width = `${width}px`;
+    img.style.height = `${height}px`;
+  }
+
+  function watchImageFit(frame, img, taskOrder) {
+    const apply = () => {
+      requestAnimationFrame(() => fitImageIntoFrame(frame, img, taskOrder));
+    };
+
+    if (img.complete && img.naturalWidth) {
+      apply();
+    } else {
+      img.addEventListener("load", apply, { once: true });
+    }
+
+    if ("ResizeObserver" in window) {
+      if (imageResizeObserver) imageResizeObserver.disconnect();
+
+      imageResizeObserver = new ResizeObserver(() => apply());
+      imageResizeObserver.observe(frame);
+      imageFitFrame = frame;
+    } else {
+      // Old-browser fallback. Modern Chromium uses ResizeObserver.
+      window.addEventListener("resize", apply, { passive: true });
+    }
+  }
+
   function setImage(extra, src, alt, taskOrder) {
     const frame = document.createElement("div");
     frame.className = "image-quiz-frame";
-    frame.style.setProperty("--image-quiz-zoom", getZoom(taskOrder));
 
     const img = document.createElement("img");
     img.src = src;
@@ -60,6 +112,8 @@
 
     frame.appendChild(img);
     extra.appendChild(frame);
+
+    watchImageFit(frame, img, taskOrder);
   }
 
   function getCurrentImage(task, sceneId) {

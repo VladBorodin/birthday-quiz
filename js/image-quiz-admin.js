@@ -8,6 +8,7 @@
   }
 
   let data = null;
+  let lastAutoFitSceneKey = null;
 
   function escapeHtml(value) {
     return String(value ?? "")
@@ -250,7 +251,23 @@
     }
 
     const task = getTask(state.current.groupId);
-    if (task) renderTask(state, task);
+
+    if (task) {
+      const sceneKey = `${state.current.groupId}:${state.current.sceneId}`;
+
+      // Every newly opened image starts in automatic fit mode.
+      // Manual +/- zoom remains available afterwards and is not reset by score changes.
+      if (sceneKey !== lastAutoFitSceneKey) {
+        lastAutoFitSceneKey = sceneKey;
+
+        if (getZoom(state, task.order) !== 1) {
+          setZoom(task.order, 1);
+          return;
+        }
+      }
+
+      renderTask(state, task);
+    }
   }
 
   async function init() {
