@@ -42,9 +42,16 @@
     return extra;
   }
 
-  function setImage(extra, src, alt) {
+  function getZoom(taskOrder) {
+    const raw = state.imageQuiz?.zoomByTask?.[String(taskOrder)];
+    const zoom = Number(raw);
+    return Number.isFinite(zoom) ? Math.max(0.5, Math.min(1.8, zoom)) : 1;
+  }
+
+  function setImage(extra, src, alt, taskOrder) {
     const frame = document.createElement("div");
     frame.className = "image-quiz-frame";
+    frame.style.setProperty("--image-quiz-zoom", getZoom(taskOrder));
 
     const img = document.createElement("img");
     img.src = src;
@@ -81,7 +88,7 @@
       els.stageKicker.textContent = taskLabel;
       els.stageTitle.textContent = "Что исчезло?";
       els.stageSubtitle.textContent = "Назовите пропажу и источник изображения";
-      setImage(extra, task.editedImage, `Изменённое изображение, задание ${task.order}`);
+      setImage(extra, task.editedImage, `Изменённое изображение, задание ${task.order}`, task.order);
       return;
     }
 
@@ -95,7 +102,7 @@
       chip.textContent = "После подсказки — максимум 1 балл";
       extra.appendChild(chip);
 
-      setImage(extra, task.editedImage, `Изменённое изображение с подсказкой, задание ${task.order}`);
+      setImage(extra, task.editedImage, `Изменённое изображение с подсказкой, задание ${task.order}`, task.order);
       return;
     }
 
@@ -104,7 +111,7 @@
       els.stageTitle.textContent = task.title;
       els.stageSubtitle.textContent = `${task.creatorLabel}: ${task.creator}${task.year ? ` · ${task.year}` : ""}`;
 
-      setImage(extra, task.originalImage, `Оригинал: ${task.title}`);
+      setImage(extra, task.originalImage, `Оригинал: ${task.title}`, task.order);
 
       const answer = document.createElement("div");
       answer.className = "image-quiz-answer-chip";

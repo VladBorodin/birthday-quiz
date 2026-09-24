@@ -23,6 +23,28 @@
     return data.tasks.find(task => task.order === order) || null;
   }
 
+  function getZoom(state, taskOrder) {
+    const raw = state.imageQuiz?.zoomByTask?.[String(taskOrder)];
+    const zoom = Number(raw);
+    return Number.isFinite(zoom) ? Math.max(0.5, Math.min(1.8, zoom)) : 1;
+  }
+
+  function setZoom(taskOrder, value) {
+    const zoom = Math.max(0.5, Math.min(1.8, Number(value) || 1));
+
+    api.commit(state => {
+      state.imageQuiz = state.imageQuiz || {};
+      state.imageQuiz.zoomByTask = state.imageQuiz.zoomByTask || {};
+      state.imageQuiz.zoomByTask[String(taskOrder)] = zoom;
+    });
+  }
+
+  function changeZoom(taskOrder, delta) {
+    const state = api.getState();
+    const current = getZoom(state, taskOrder);
+    setZoom(taskOrder, Math.round((current + delta) * 10) / 10);
+  }
+
   function changeScore(teamId, delta) {
     api.commit(state => {
       const team = state.teams.find(item => item.id === teamId);
@@ -78,6 +100,7 @@
     const sceneId = state.current.sceneId;
     const afterHint = sceneId === "hint";
     const original = sceneId === "original";
+    const zoom = getZoom(state, task.order);
 
     root.classList.remove("hidden");
 
@@ -119,6 +142,18 @@
         <p>${escapeHtml(task.hint)}</p>
       </div>
 
+      <div class="image-quiz-zoom-control">
+        <div>
+          <span>Масштаб изображения</span>
+          <strong>${Math.round(zoom * 100)}%</strong>
+        </div>
+        <div class="image-quiz-zoom-buttons">
+          <button type="button" class="button button-secondary" data-image-zoom="out">−</button>
+          <button type="button" class="button button-secondary" data-image-zoom="fit">Вписать</button>
+          <button type="button" class="button button-secondary" data-image-zoom="in">+</button>
+        </div>
+      </div>
+
       <div class="image-quiz-admin-actions">
         ${sceneId === "prompt" ? `
           <button type="button" class="button button-secondary" data-image-action="hint">
@@ -150,6 +185,11 @@
 
     root.querySelector('[data-image-action="hint"]')?.addEventListener("click", () => goToScene("hint"));
     root.querySelector('[data-image-action="original"]')?.addEventListener("click", () => goToScene("original"));
+
+    root.querySelector('[data-image-zoom="out"]')?.addEventListener("click", () => changeZoom(task.order, -0.1));
+    root.querySelector('[data-image-zoom="fit"]')?.addEventListener("click", () => setZoom(task.order, 1));
+    root.querySelector('[data-image-zoom="in"]')?.addEventListener("click", () => changeZoom(task.order, 0.1));
+
     bindScoreButtons();
   }
 
