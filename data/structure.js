@@ -9,6 +9,15 @@
     ]
   }));
 
+  const musicQuizTaskGroups = Array.from({ length: 19 }, (_, index) => ({
+    id: `task-${index + 1}`,
+    title: `Трек ${index + 1}`,
+    scenes: [
+      { id: "prompt", title: "Угадать мелодию" },
+      { id: "answer", title: "Показать ответ" }
+    ]
+  }));
+
   window.QUIZ_STRUCTURE = {
     systemScreens: [
       { id: "welcome", title: "Заставка" },
@@ -101,13 +110,37 @@
 
       {
         id: "game-3",
-        title: "Игра 3 — Угадай именинника",
+        title: "Игра 3 — Угадай мелодию",
+        dataSource: "data/music-quiz.json",
         groups: [
           {
             id: "intro",
-            title: "Заставка игры",
+            title: "Вступление",
             scenes: [
-              { id: "intro", title: "Заставка" }
+              { id: "title", title: "Заставка конкурса" },
+              { id: "rules", title: "Свод правил" }
+            ]
+          },
+          ...musicQuizTaskGroups,
+          {
+            id: "results",
+            title: "Завершение",
+            scenes: [
+              { id: "results", title: "Итоги конкурса" }
+            ]
+          }
+        ]
+      },
+
+      {
+        id: "game-4",
+        title: "Игра 4 — Угадай именинника",
+        groups: [
+          {
+            id: "intro",
+            title: "Вступление",
+            scenes: [
+              { id: "title", title: "Заставка конкурса" }
             ]
           }
         ]

@@ -1,0 +1,112 @@
+.music-admin-info {
+  margin-top: 16px;
+  padding: 16px;
+  border: 1px solid rgba(243, 185, 79, .35);
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg, rgba(243,185,79,.07), transparent 58%),
+    var(--panel-deep);
+}
+
+.music-admin-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.music-answer {
+  margin-top: 5px;
+  font-size: clamp(1.2rem, 1.5vw, 1.65rem);
+  line-height: 1.2;
+  font-weight: 950;
+}
+
+.music-owner-chip {
+  flex: 0 0 auto;
+  padding: 7px 10px;
+  border: 1px solid rgba(139, 176, 255, .36);
+  border-radius: 999px;
+  background: rgba(139, 176, 255, .08);
+  color: #c8d8ff;
+  font-size: .78rem;
+  font-weight: 850;
+}
+
+.music-owner-chip.autumn {
+  border-color: rgba(243,185,79,.38);
+  background: rgba(243,185,79,.08);
+  color: var(--accent);
+}
+
+.music-fragment-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.music-fragment-btn {
+  min-height: 64px;
+  display: grid;
+  align-content: center;
+  gap: 3px;
+}
+
+.music-fragment-btn strong,
+.music-fragment-btn span {
+  display: block;
+}
+
+.music-fragment-btn strong {
+  font-size: 1rem;
+}
+
+.music-fragment-btn span {
+  opacity: .76;
+  font-size: .76rem;
+}
+
+.music-player-host {
+  margin-top: 12px;
+}
+
+.music-full-player {
+  display: block;
+  width: 100%;
+}
+
+.music-current-tier {
+  margin-top: 11px;
+  padding: 9px 11px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--panel-soft);
+  color: var(--muted);
+  font-size: .86rem;
+}
+
+.music-current-tier strong {
+  color: var(--text);
+}
+
+.music-score-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.music-score-placeholder {
+  color: var(--muted);
+  font-size: .85rem;
+}
+
+@media (max-width: 760px) {
+  .music-fragment-buttons {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .music-admin-heading {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,262 @@
+{
+  "id": "music-quiz",
+  "competitionNumber": 3,
+  "title": "Угадай мелодию",
+  "subtitle": "От четырёх секунд до полного трека",
+  "rules": [
+    "Ведущий включает фрагменты одного и того же трека по нарастающей.",
+    "Ответ после фрагмента 4 секунды приносит 3 балла.",
+    "Ответ после фрагмента 8 секунд приносит 2 балла.",
+    "Ответ после фрагмента 12 секунд приносит 1 балл.",
+    "Если песню не угадали, можно включить полный трек; правильный ответ всё ещё приносит 1 балл."
+  ],
+  "tasks": [
+    {
+      "order": 1,
+      "category": "Осень",
+      "owner": null,
+      "artist": "Михаил Шуфутинский",
+      "title": "3 сентября",
+      "clips": {
+        "4": "static/Music/Осень/Mikhail_SHufutinskijj 4 сек.mp3",
+        "8": "static/Music/Осень/Mikhail_SHufutinskijj 8 сек.mp3",
+        "12": "static/Music/Осень/Mikhail_SHufutinskijj 12 сек.mp3",
+        "full": "static/Music/Осень/Mikhail_SHufutinskijj_-_3-e_sentyabrya_74685267.mp3"
+      }
+    },
+    {
+      "order": 2,
+      "category": "Осень",
+      "owner": null,
+      "artist": "ДДТ",
+      "title": "Что такое осень",
+      "clips": {
+        "4": "static/Music/Осень/DDT 4 сек.mp3",
+        "8": "static/Music/Осень/DDT 8 сек.mp3",
+        "12": "static/Music/Осень/DDT 12 сек.mp3",
+        "full": "static/Music/Осень/DDT_-_CHto_takoe_osen_48191018.mp3"
+      }
+    },
+    {
+      "order": 3,
+      "category": "Осень",
+      "owner": null,
+      "artist": "Лицей",
+      "title": "Осень",
+      "clips": {
+        "4": "static/Music/Осень/Licejj 4 сек.mp3",
+        "8": "static/Music/Осень/Licejj 8 сек.mp3",
+        "12": "static/Music/Осень/Licejj 12 сек.mp3",
+        "full": "static/Music/Осень/Licejj_-_Osen_49680279.mp3"
+      }
+    },
+    {
+      "order": 4,
+      "category": "Осень",
+      "owner": null,
+      "artist": "Earth, Wind & Fire",
+      "title": "September",
+      "clips": {
+        "4": "static/Music/Осень/Earth_Wind_Fire 4 сек.mp3",
+        "8": "static/Music/Осень/Earth_Wind_Fire 8 сек.mp3",
+        "12": "static/Music/Осень/Earth_Wind_Fire 12 сек.mp3",
+        "full": "static/Music/Осень/Earth_Wind_Fire_-_September_47925668.mp3"
+      }
+    },
+    {
+      "order": 5,
+      "category": "Осень",
+      "owner": null,
+      "artist": "Анжелика Варум",
+      "title": "Осенний джаз",
+      "clips": {
+        "4": "static/Music/Осень/Anzhelika_Varum 4 сек.mp3",
+        "8": "static/Music/Осень/Anzhelika_Varum 8 сек.mp3",
+        "12": "static/Music/Осень/Anzhelika_Varum 12 сек.mp3",
+        "full": "static/Music/Осень/Anzhelika_Varum_-_Osennijj_dzhaz_11864551.mp3"
+      }
+    },
+    {
+      "order": 6,
+      "category": "Осень",
+      "owner": null,
+      "artist": "Александр Розенбаум",
+      "title": "Вальс-бостон",
+      "clips": {
+        "4": "static/Music/Осень/Aleksandr_Rozenbaum 4 сек.mp3",
+        "8": "static/Music/Осень/Aleksandr_Rozenbaum 8 сек.mp3",
+        "12": "static/Music/Осень/Aleksandr_Rozenbaum 12 сек.mp3",
+        "full": "static/Music/Осень/Aleksandr_Rozenbaum_-_Vals-boston_79598873.mp3"
+      }
+    },
+    {
+      "order": 7,
+      "category": "Осень",
+      "owner": null,
+      "artist": "Алла Пугачёва",
+      "title": "Осенний поцелуй",
+      "clips": {
+        "4": "static/Music/Осень/Alla_Pugachjova 4 сек.mp3",
+        "8": "static/Music/Осень/Alla_Pugachjova 8 сек.mp3",
+        "12": "static/Music/Осень/Alla_Pugachjova 12 сек.mp3",
+        "full": "static/Music/Осень/Alla_Pugachjova_-_Osennijj_pocelujj_47954874.mp3"
+      }
+    },
+    {
+      "order": 8,
+      "category": "Топ именинников",
+      "owner": "Стас",
+      "artist": "Кино",
+      "title": "Пачка сигарет",
+      "clips": {
+        "4": "static/Music/Топы/Стас/Кино 4 сек.mp3",
+        "8": "static/Music/Топы/Стас/Кино 8 сек.mp3",
+        "12": "static/Music/Топы/Стас/Кино 12 сек.mp3",
+        "full": "static/Music/Топы/Стас/Kino_-_Pachka_sigaret_55527249.mp3"
+      }
+    },
+    {
+      "order": 9,
+      "category": "Топ именинников",
+      "owner": "Таня",
+      "artist": "The Weeknd",
+      "title": "Blinding Lights",
+      "clips": {
+        "4": "static/Music/Топы/Таня/Викенд 4 сек.mp3",
+        "8": "static/Music/Топы/Таня/Викенд 8 сек.mp3",
+        "12": "static/Music/Топы/Таня/Викенд 12 сек.mp3",
+        "full": "static/Music/Топы/Таня/The_Weeknd_-_Blinding_Lights_67509023.mp3"
+      }
+    },
+    {
+      "order": 10,
+      "category": "Топ именинников",
+      "owner": "Слава",
+      "artist": "SHAMAN",
+      "title": "Я русский",
+      "clips": {
+        "4": "static/Music/Топы/Слава/Шаман 4 сек.mp3",
+        "8": "static/Music/Топы/Слава/Шаман 8 сек.mp3",
+        "12": "static/Music/Топы/Слава/Шаман 12 сек.mp3",
+        "full": "static/Music/Топы/Слава/SHAMAN_-_YA_RUSSKIJJ_74622610.mp3"
+      }
+    },
+    {
+      "order": 11,
+      "category": "Топ именинников",
+      "owner": "Марина",
+      "artist": "Филипп Киркоров",
+      "title": "Я за тебя умру",
+      "clips": {
+        "4": "static/Music/Топы/Марина/Филип 4 сек.mp3",
+        "8": "static/Music/Топы/Марина/Филип 8 сек.mp3",
+        "12": "static/Music/Топы/Марина/Филип 12 сек.mp3",
+        "full": "static/Music/Топы/Марина/ilipp_Kirkorov_-_YA_za_tebya_umru_48105833.mp3"
+      }
+    },
+    {
+      "order": 12,
+      "category": "Топ именинников",
+      "owner": "Стас",
+      "artist": "Disturbed",
+      "title": "Down With the Sickness",
+      "clips": {
+        "4": "static/Music/Топы/Стас/Disturbed 4 сек.mp3",
+        "8": "static/Music/Топы/Стас/Disturbed 8 сек.mp3",
+        "12": "static/Music/Топы/Стас/Disturbed 12 сек.mp3",
+        "full": "static/Music/Топы/Стас/Disturbed_-_Down_With_the_Sickness_47829313.mp3"
+      }
+    },
+    {
+      "order": 13,
+      "category": "Топ именинников",
+      "owner": "Таня",
+      "artist": "Sting",
+      "title": "Shape of My Heart",
+      "clips": {
+        "4": "static/Music/Топы/Таня/Стинг 4 сек.mp3",
+        "8": "static/Music/Топы/Таня/Стинг 8 сек.mp3",
+        "12": "static/Music/Топы/Таня/Стинг 12 сек.mp3",
+        "full": "static/Music/Топы/Таня/Sting_-_Shape_Of_My_Heart_47835291.mp3"
+      }
+    },
+    {
+      "order": 14,
+      "category": "Топ именинников",
+      "owner": "Марина",
+      "artist": "INSTASAMKA",
+      "title": "Отключаю телефон",
+      "clips": {
+        "4": "static/Music/Топы/Марина/INSTASAMKA 4 сек.mp3",
+        "8": "static/Music/Топы/Марина/INSTASAMKA 8 сек.mp3",
+        "12": "static/Music/Топы/Марина/INSTASAMKA 12 сек.mp3",
+        "full": "static/Music/Топы/Марина/INSTASAMKA_-_Otklyuchayu_telefon_75478567.mp3"
+      }
+    },
+    {
+      "order": 15,
+      "category": "Топ именинников",
+      "owner": "Слава",
+      "artist": "Ольга Бузова",
+      "title": "WIFI",
+      "clips": {
+        "4": "static/Music/Топы/Слава/Бузова 4 сек.mp3",
+        "8": "static/Music/Топы/Слава/Бузова 8 сек.mp3",
+        "12": "static/Music/Топы/Слава/Бузова 12 сек.mp3",
+        "full": "static/Music/Топы/Слава/Olga_Buzova_-_WIFI_51647765.mp3"
+      }
+    },
+    {
+      "order": 16,
+      "category": "Топ именинников",
+      "owner": "Марина",
+      "artist": "Алла Пугачёва",
+      "title": "Позови меня с собой",
+      "clips": {
+        "4": "static/Music/Топы/Марина/Пугачева 4 сек.mp3",
+        "8": "static/Music/Топы/Марина/Пугачева 8 сек.mp3",
+        "12": "static/Music/Топы/Марина/Пугачева 12 сек.mp3",
+        "full": "static/Music/Топы/Марина/Alla_Pugachjova_-_Pozovi_menya_s_sobojj_48558838.mp3"
+      }
+    },
+    {
+      "order": 17,
+      "category": "Топ именинников",
+      "owner": "Стас",
+      "artist": "GSPD",
+      "title": "У России три пути",
+      "clips": {
+        "4": "static/Music/Топы/Стас/GSPD 4 сек.mp3",
+        "8": "static/Music/Топы/Стас/GSPD 8 сек.mp3",
+        "12": "static/Music/Топы/Стас/GSPD 12 сек.mp3",
+        "full": "static/Music/Топы/Стас/GSPD_-_U_Rossii_tri_puti_73137199.mp3"
+      }
+    },
+    {
+      "order": 18,
+      "category": "Топ именинников",
+      "owner": "Таня",
+      "artist": "Надежда Кадышева",
+      "title": "Плывёт веночек",
+      "clips": {
+        "4": "static/Music/Топы/Таня/Кадышева 4 сек.mp3",
+        "8": "static/Music/Топы/Таня/Кадышева 8 сек.mp3",
+        "12": "static/Music/Топы/Таня/Кадышева 12 сек.mp3",
+        "full": "static/Music/Топы/Таня/Nadezhda_Kadysheva_-_Plyvjot_venochek_58976218.mp3"
+      }
+    },
+    {
+      "order": 19,
+      "category": "Топ именинников",
+      "owner": "Слава",
+      "artist": "INSTASAMKA",
+      "title": "За деньги да",
+      "clips": {
+        "4": "static/Music/Топы/Слава/INSTASAMKA 4 сек.mp3",
+        "8": "static/Music/Топы/Слава/INSTASAMKA 8 сек.mp3",
+        "12": "static/Music/Топы/Слава/INSTASAMKA 12 сек.mp3",
+        "full": "static/Music/Топы/Слава/INSTASAMKA_-_ZA_DENGI_DA_75227740.mp3"
+      }
+    }
+  ]
+}
