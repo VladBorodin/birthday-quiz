@@ -18,6 +18,14 @@
     ]
   }));
 
+  const birthdayGuessGroups = Array.from({ length: 4 }, (_, index) => ({
+    id: `profile-${index + 1}`,
+    title: `Портрет ${index + 1}`,
+    scenes: [
+      { id: "description", title: "Описание" }
+    ]
+  }));
+
   window.QUIZ_STRUCTURE = {
     systemScreens: [
       { id: "welcome", title: "Заставка" },
@@ -135,12 +143,22 @@
       {
         id: "game-4",
         title: "Игра 4 — Угадай именинника",
+        dataSource: "data/birthday-guess.json",
         groups: [
           {
             id: "intro",
             title: "Вступление",
             scenes: [
-              { id: "title", title: "Заставка конкурса" }
+              { id: "title", title: "Заставка конкурса" },
+              { id: "rules", title: "Свод правил" }
+            ]
+          },
+          ...birthdayGuessGroups,
+          {
+            id: "results",
+            title: "Завершение",
+            scenes: [
+              { id: "results", title: "Ответы команд" }
             ]
           }
         ]

@@ -1,0 +1,175 @@
+body[data-game-mode="birthday-guess"] .stage {
+  padding: clamp(22px, 3vw, 46px);
+}
+
+body[data-game-mode="birthday-guess"] .stage h1 {
+  font-size: clamp(2.6rem, 5vw, 5.6rem);
+}
+
+.birthday-guess-extra {
+  width: min(1500px, 94vw);
+  margin: clamp(14px, 2vh, 24px) auto 0;
+}
+
+.birthday-profile-card {
+  position: relative;
+  padding: clamp(24px, 3vw, 42px);
+  border: 1px solid rgba(160,130,255,.28);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 8% 0%, rgba(160,130,255,.11), transparent 26%),
+    rgba(16, 21, 30, .96);
+  box-shadow: 0 24px 70px rgba(0,0,0,.26);
+}
+
+.birthday-profile-audio {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  color: rgba(243,185,79,.68);
+  font-size: clamp(2rem, 3vw, 3.4rem);
+}
+
+.birthday-profile-text {
+  padding-right: clamp(20px, 4vw, 62px);
+  font-size: clamp(1.08rem, 1.55vw, 1.72rem);
+  line-height: 1.48;
+  text-align: left;
+  font-weight: 620;
+}
+
+.birthday-profile-text strong {
+  color: var(--accent);
+  font-weight: 950;
+}
+
+.birthday-truth-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 9px;
+  margin-bottom: 14px;
+}
+
+.birthday-truth-card {
+  display: grid;
+  gap: 3px;
+  padding: 12px;
+  border: 1px solid rgba(243,185,79,.28);
+  border-radius: 13px;
+  background: rgba(243,185,79,.06);
+  text-align: center;
+}
+
+.birthday-truth-card span {
+  color: var(--muted);
+  font-size: .72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.birthday-truth-card strong {
+  font-size: clamp(1.05rem, 1.5vw, 1.45rem);
+}
+
+.birthday-result-table {
+  display: grid;
+  gap: 7px;
+}
+
+.birthday-result-row {
+  display: grid;
+  grid-template-columns: 1.3fr repeat(4, minmax(0, 1fr)) .65fr;
+  gap: 7px;
+}
+
+.birthday-result-row > div {
+  min-height: 54px;
+  display: grid;
+  place-items: center;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: rgba(18, 24, 33, .92);
+  text-align: center;
+}
+
+.birthday-result-head > div {
+  min-height: 38px;
+  color: var(--muted);
+  font-size: .75rem;
+  font-weight: 950;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+
+.birthday-result-team,
+.birthday-result-total {
+  font-weight: 950;
+  font-size: clamp(.95rem, 1.2vw, 1.18rem);
+}
+
+.birthday-result-cell {
+  display: grid !important;
+  grid-template-columns: 1fr auto !important;
+  column-gap: 6px;
+}
+
+.birthday-result-cell span {
+  font-weight: 800;
+}
+
+.birthday-result-cell strong {
+  font-size: 1.35rem;
+}
+
+.birthday-result-cell.correct {
+  border-color: rgba(126,217,142,.35);
+  background: rgba(126,217,142,.07);
+}
+
+.birthday-result-cell.correct strong {
+  color: #9ee7ad;
+}
+
+.birthday-result-cell.wrong {
+  border-color: rgba(255,130,130,.3);
+  background: rgba(255,130,130,.055);
+}
+
+.birthday-result-cell.wrong strong {
+  color: #ffaaaa;
+}
+
+.birthday-waiting-results {
+  padding: 34px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: rgba(18,24,33,.92);
+  color: var(--muted);
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
+}
+
+@media (max-width: 1100px) {
+  .birthday-result-row {
+    grid-template-columns: 1.1fr repeat(4, minmax(0, 1fr)) .55fr;
+  }
+
+  .birthday-result-row > div {
+    padding: 5px;
+  }
+}
+
+@media (max-width: 760px) {
+  .birthday-truth-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .birthday-profile-text {
+    padding-right: 0;
+    font-size: 1rem;
+  }
+
+  .birthday-profile-audio {
+    display: none;
+  }
+}

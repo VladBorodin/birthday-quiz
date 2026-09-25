@@ -1,0 +1,252 @@
+.birthday-guess-admin {
+  margin-top: 16px;
+  padding: 16px;
+  border: 1px solid rgba(160, 130, 255, .35);
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg, rgba(160,130,255,.07), transparent 58%),
+    var(--panel-deep);
+}
+
+.birthday-admin-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.birthday-secret-answer {
+  margin-top: 5px;
+  font-size: 1.08rem;
+  color: var(--muted);
+}
+
+.birthday-secret-answer strong {
+  color: var(--text);
+  font-size: 1.32rem;
+}
+
+.birthday-admin-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.birthday-audio-status {
+  color: var(--muted);
+  font-size: .8rem;
+}
+
+.birthday-audio-status.error {
+  color: #ffb8b8;
+}
+
+.birthday-player-host {
+  margin-top: 10px;
+}
+
+.birthday-voice-player {
+  display: block;
+  width: 100%;
+}
+
+.birthday-admin-results {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin-top: 7px;
+  color: var(--muted);
+}
+
+.birthday-admin-results strong {
+  color: var(--text);
+}
+
+.birthday-answer-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 24000;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(5, 8, 12, .84);
+  backdrop-filter: blur(10px);
+}
+
+.birthday-answer-dialog {
+  width: min(1450px, 96vw);
+  max-height: 92vh;
+  overflow: auto;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--panel);
+  box-shadow: 0 30px 90px rgba(0,0,0,.42);
+}
+
+.birthday-answer-modal-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: flex-start;
+  margin-bottom: 18px;
+}
+
+.birthday-answer-modal-head h2 {
+  margin: 2px 0 4px;
+}
+
+.birthday-answer-modal-head p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.birthday-answers-body {
+  display: grid;
+  gap: 14px;
+}
+
+.birthday-answer-team {
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--panel-deep);
+}
+
+.birthday-answer-team-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.birthday-answer-team-head span {
+  color: var(--muted);
+  font-weight: 850;
+}
+
+.birthday-answer-team-head span.complete {
+  color: #9ee7ad;
+}
+
+.birthday-answer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.birthday-answer-slot {
+  min-height: 94px;
+  padding: 9px;
+  border: 1px dashed rgba(255,255,255,.16);
+  border-radius: 11px;
+  background: rgba(255,255,255,.025);
+  transition: .15s ease;
+}
+
+.birthday-answer-slot.drag-over,
+.birthday-answer-bank.drag-over {
+  border-color: var(--accent);
+  background: rgba(243,185,79,.07);
+}
+
+.birthday-slot-label {
+  margin-bottom: 7px;
+  color: var(--muted);
+  font-size: .72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+.birthday-slot-drop {
+  min-height: 48px;
+  display: grid;
+  align-items: center;
+}
+
+.birthday-slot-drop > span {
+  color: var(--muted);
+  font-size: .78rem;
+}
+
+.birthday-answer-chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 8px 12px;
+  border: 1px solid rgba(139,176,255,.36);
+  border-radius: 999px;
+  background: rgba(139,176,255,.09);
+  color: #d7e2ff;
+  font-weight: 900;
+  cursor: grab;
+  user-select: none;
+}
+
+.birthday-answer-chip:active {
+  cursor: grabbing;
+}
+
+.birthday-answer-bank {
+  min-height: 54px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+  margin-top: 9px;
+  padding: 8px;
+  border: 1px dashed var(--border);
+  border-radius: 11px;
+}
+
+.birthday-bank-label {
+  margin-right: 4px;
+  color: var(--muted);
+  font-size: .72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.birthday-bank-empty {
+  color: var(--muted);
+  font-size: .78rem;
+}
+
+.birthday-answer-modal-actions {
+  position: sticky;
+  bottom: -22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 18px -22px -22px;
+  padding: 14px 22px;
+  border-top: 1px solid var(--border);
+  background: rgba(15, 20, 28, .96);
+  backdrop-filter: blur(8px);
+}
+
+.birthday-answer-modal-spacer {
+  flex: 1;
+}
+
+.birthday-answer-modal-actions button:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+@media (max-width: 900px) {
+  .birthday-answer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .birthday-admin-head,
+  .birthday-answer-modal-head {
+    flex-direction: column;
+  }
+}
