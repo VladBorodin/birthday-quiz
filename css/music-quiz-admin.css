@@ -110,3 +110,13 @@
     flex-direction: column;
   }
 }
+
+
+.music-player-loading {
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--panel-soft);
+  color: var(--muted);
+  font-weight: 800;
+}

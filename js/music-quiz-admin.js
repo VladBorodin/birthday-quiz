@@ -13,6 +13,9 @@
   player.preload = "metadata";
   player.controls = true;
 
+  let fullTrackObjectUrl = null;
+  let fullTrackLoadToken = 0;
+
   const tiers = {
     "4": { label: "4 сек", points: 3 },
     "8": { label: "8 сек", points: 2 },
@@ -51,14 +54,86 @@
     return state.musicQuiz?.tier || null;
   }
 
+  function revokeFullTrackObjectUrl() {
+    if (!fullTrackObjectUrl) return;
+    URL.revokeObjectURL(fullTrackObjectUrl);
+    fullTrackObjectUrl = null;
+  }
+
   function stopAudio(clearSource = false) {
     player.pause();
 
     if (clearSource) {
+      fullTrackLoadToken += 1;
       player.removeAttribute("src");
       player.load();
+      revokeFullTrackObjectUrl();
     } else {
       try { player.currentTime = 0; } catch {}
+    }
+  }
+
+  async function loadFullTrackAsBlob(task, host) {
+    const token = ++fullTrackLoadToken;
+
+    player.pause();
+    player.removeAttribute("src");
+    player.load();
+    revokeFullTrackObjectUrl();
+
+    if (host) {
+      host.classList.remove("hidden");
+      host.innerHTML = '<div class="music-player-loading">Загрузка полного трека…</div>';
+    }
+
+    try {
+      const response = await fetch(task.clips.full, { cache: "force-cache" });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+      const blob = await response.blob();
+
+      // The user may already have switched to another track while the file loaded.
+      if (token !== fullTrackLoadToken) return;
+
+      fullTrackObjectUrl = URL.createObjectURL(blob);
+      player.src = fullTrackObjectUrl;
+      player.controls = true;
+      player.className = "music-full-player";
+      player.preload = "auto";
+
+      if (host) {
+        host.innerHTML = "";
+        host.appendChild(player);
+      }
+
+      player.load();
+
+      const onReady = () => {
+        if (token !== fullTrackLoadToken) return;
+        const playPromise = player.play();
+        if (playPromise?.catch) {
+          playPromise.catch(error => {
+            console.warn("Не удалось автоматически запустить полный трек.", error);
+          });
+        }
+      };
+
+      if (player.readyState >= 1) {
+        onReady();
+      } else {
+        player.addEventListener("loadedmetadata", onReady, { once: true });
+      }
+    } catch (error) {
+      console.error("Не удалось загрузить полный трек в память", error);
+      if (token !== fullTrackLoadToken) return;
+
+      if (host) {
+        host.innerHTML = `
+          <div class="game-info-error">
+            Не удалось загрузить полный трек. Проверьте файл и перезапустите локальный сервер.
+          </div>
+        `;
+      }
     }
   }
 
@@ -76,21 +151,25 @@
       };
     });
 
-    stopAudio(false);
-    player.src = task.clips[tier];
-
     const freshPanel = ensurePanel();
     const host = freshPanel.querySelector("#musicFullPlayerHost");
 
     if (tier === "full") {
-      player.controls = true;
-      player.className = "music-full-player";
-      host?.appendChild(player);
-    } else {
-      player.controls = false;
+      // Load the entire MP3 into a Blob first. This makes seeking independent
+      // of HTTP Range support in a simple local development server.
+      loadFullTrackAsBlob(task, host);
+      return;
     }
 
+    fullTrackLoadToken += 1;
+    stopAudio(false);
+    revokeFullTrackObjectUrl();
+
+    player.controls = false;
+    player.preload = "auto";
+    player.src = task.clips[tier];
     player.currentTime = 0;
+
     const playPromise = player.play();
     if (playPromise?.catch) {
       playPromise.catch(error => {
@@ -215,7 +294,7 @@
       <div class="music-score-buttons">${scoreButtons}</div>
     `;
 
-    if (tier === "full") {
+    if (tier === "full" && player.src) {
       const host = box.querySelector("#musicFullPlayerHost");
       player.controls = true;
       player.className = "music-full-player";
