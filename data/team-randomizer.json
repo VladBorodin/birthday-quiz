@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "remoteTeam": {
+    "strategy": "birthday-with-remote-mode",
+    "teamId": null,
+    "allowOfficeEmployees": false
+  },
+  "distribution": {
+    "balanceOfficeTeams": true,
+    "preserveExcludedOnReroll": true
+  },
+  "exclude": {
+    "birthdayPeople": true,
+    "host": true,
+    "disabledEmployees": true
+  },
+  "exportFileName": "team-assignments.json"
+}
