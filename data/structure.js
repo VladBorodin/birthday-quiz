@@ -18,7 +18,7 @@
     ]
   }));
 
-  const musicQuizTaskGroups = Array.from({ length: 19 }, (_, index) => ({
+  const musicQuizTaskGroups = Array.from({ length: 22 }, (_, index) => ({
     id: `task-${index + 1}`,
     title: `Трек ${index + 1}`,
     scenes: [
@@ -27,7 +27,7 @@
     ]
   }));
 
-  const birthdayGuessGroups = Array.from({ length: 4 }, (_, index) => ({
+  const birthdayGuessGroups = Array.from({ length: 5 }, (_, index) => ({
     id: `profile-${index + 1}`,
     title: `Портрет ${index + 1}`,
     scenes: [

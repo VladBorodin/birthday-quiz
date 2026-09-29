@@ -45,7 +45,7 @@ body[data-game-mode="birthday-guess"] .stage h1 {
 
 .birthday-truth-row {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(var(--birthday-profile-count, 4), minmax(0, 1fr));
   gap: 9px;
   margin-bottom: 14px;
 }
@@ -78,7 +78,7 @@ body[data-game-mode="birthday-guess"] .stage h1 {
 
 .birthday-result-row {
   display: grid;
-  grid-template-columns: 1.3fr repeat(4, minmax(0, 1fr)) .65fr;
+  grid-template-columns: 1.3fr repeat(var(--birthday-profile-count, 4), minmax(0, 1fr)) .65fr;
   gap: 7px;
 }
 
@@ -151,7 +151,7 @@ body[data-game-mode="birthday-guess"] .stage h1 {
 
 @media (max-width: 1100px) {
   .birthday-result-row {
-    grid-template-columns: 1.1fr repeat(4, minmax(0, 1fr)) .55fr;
+    grid-template-columns: 1.1fr repeat(var(--birthday-profile-count, 4), minmax(0, 1fr)) .55fr;
   }
 
   .birthday-result-row > div {

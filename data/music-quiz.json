@@ -155,7 +155,20 @@
       }
     },
     {
-      "order": 12,
+      "category": "Топ именинников",
+      "owner": "Максим",
+      "artist": "Веня Д'ркин",
+      "title": "Кошка",
+      "clips": {
+        "4": "static/Music/Топы/Максим/Venya_Drkin 4 сек.mp3",
+        "8": "static/Music/Топы/Максим/Venya_Drkin 8 сек.mp3",
+        "12": "static/Music/Топы/Максим/Venya_Drkin 12 сек.mp3",
+        "full": "static/Music/Топы/Максим/Venya_Drkin_-_Koshka_79919019.mp3"
+      },
+      "order": 12
+    },
+    {
+      "order": 13,
       "category": "Топ именинников",
       "owner": "Стас",
       "artist": "Disturbed",
@@ -168,7 +181,7 @@
       }
     },
     {
-      "order": 13,
+      "order": 14,
       "category": "Топ именинников",
       "owner": "Таня",
       "artist": "Sting",
@@ -181,7 +194,7 @@
       }
     },
     {
-      "order": 14,
+      "order": 15,
       "category": "Топ именинников",
       "owner": "Марина",
       "artist": "INSTASAMKA",
@@ -194,7 +207,7 @@
       }
     },
     {
-      "order": 15,
+      "order": 16,
       "category": "Топ именинников",
       "owner": "Слава",
       "artist": "Ольга Бузова",
@@ -207,7 +220,20 @@
       }
     },
     {
-      "order": 16,
+      "category": "Топ именинников",
+      "owner": "Максим",
+      "artist": "Михаил Щербаков",
+      "title": "Трубач",
+      "clips": {
+        "4": "static/Music/Топы/Максим/Mikhail_SHHerbakov 4 сек.mp3",
+        "8": "static/Music/Топы/Максим/Mikhail_SHHerbakov 8 сек.mp3",
+        "12": "static/Music/Топы/Максим/Mikhail_SHHerbakov 12 сек.mp3",
+        "full": "static/Music/Топы/Максим/Mikhail_SHHerbakov_-_Trubach_80700965.mp3"
+      },
+      "order": 17
+    },
+    {
+      "order": 18,
       "category": "Топ именинников",
       "owner": "Марина",
       "artist": "Алла Пугачёва",
@@ -220,7 +246,7 @@
       }
     },
     {
-      "order": 17,
+      "order": 19,
       "category": "Топ именинников",
       "owner": "Стас",
       "artist": "GSPD",
@@ -233,7 +259,7 @@
       }
     },
     {
-      "order": 18,
+      "order": 20,
       "category": "Топ именинников",
       "owner": "Таня",
       "artist": "Надежда Кадышева",
@@ -246,7 +272,7 @@
       }
     },
     {
-      "order": 19,
+      "order": 21,
       "category": "Топ именинников",
       "owner": "Слава",
       "artist": "INSTASAMKA",
@@ -257,6 +283,19 @@
         "12": "static/Music/Топы/Слава/INSTASAMKA 12 сек.mp3",
         "full": "static/Music/Топы/Слава/INSTASAMKA_-_ZA_DENGI_DA_75227740.mp3"
       }
+    },
+    {
+      "category": "Топ именинников",
+      "owner": "Максим",
+      "artist": "Ростислав Чебыкин",
+      "title": "Дайте поспать",
+      "clips": {
+        "4": "static/Music/Топы/Максим/Rostislav_CHebykin 4 сек.mp3",
+        "8": "static/Music/Топы/Максим/Rostislav_CHebykin 8 сек.mp3",
+        "12": "static/Music/Топы/Максим/Rostislav_CHebykin 12 сек.mp3",
+        "full": "static/Music/Топы/Максим/Rostislav_CHebykin_-_Dajjte_pospat_79901689.mp3"
+      },
+      "order": 22
     }
   ]
 }

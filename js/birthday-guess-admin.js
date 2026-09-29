@@ -232,7 +232,7 @@
         <div class="birthday-answer-team-head">
           <strong>${escapeHtml(team.name)}</strong>
           <span class="${complete ? "complete" : ""}">
-            ${complete ? "4 / 4" : `${Object.keys(map).length} / 4`}
+            ${complete ? `${data.profiles.length} / ${data.profiles.length}` : `${Object.keys(map).length} / ${data.profiles.length}`}
           </span>
         </div>
 
@@ -335,13 +335,14 @@
 
     modal = document.createElement("div");
     modal.className = "birthday-answer-modal";
+    modal.style.setProperty("--birthday-profile-count", Math.max(1, data.profiles.length));
     modal.innerHTML = `
       <div class="birthday-answer-dialog" role="dialog" aria-modal="true" aria-label="Ответы команд">
         <div class="birthday-answer-modal-head">
           <div>
             <div class="eyebrow">КОНКУРС №4</div>
             <h2>Ответы команд</h2>
-            <p>Перетащите четыре имени по портретам для каждой команды.</p>
+            <p>Перетащите имена по портретам для каждой команды.</p>
           </div>
           <button id="birthdayCloseModalBtn" class="button button-secondary">Закрыть</button>
         </div>
@@ -429,7 +430,7 @@
         <div class="birthday-admin-head">
           <div>
             <div class="game-info-heading">Угадай именинника</div>
-            <div class="game-info-muted">Четыре музыкальных портрета. Имена зрителям не раскрываются до общего результата.</div>
+            <div class="game-info-muted">${data.profiles.length} музыкальных портретов. Имена зрителям не раскрываются до общего результата.</div>
           </div>
           <button class="button button-secondary birthday-open-answers-btn">Ответы команд</button>
         </div>
@@ -445,7 +446,7 @@
       const answers = state.birthdayGuess?.teamAnswers || {};
       const resultRows = state.teams.map(team => {
         const count = data.profiles.reduce((sum, item) => sum + (answers[team.id]?.[item.id] === item.answerId ? 1 : 0), 0);
-        return `<span>${escapeHtml(team.name)}: <strong>${count} / 4</strong></span>`;
+        return `<span>${escapeHtml(team.name)}: <strong>${count} / ${data.profiles.length}</strong></span>`;
       }).join("");
 
       box.innerHTML = `

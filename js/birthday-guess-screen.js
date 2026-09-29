@@ -40,6 +40,7 @@
   }
 
   function renderResults(extra) {
+    extra.style.setProperty("--birthday-profile-count", Math.max(1, data.profiles.length));
     const answers = state.birthdayGuess?.teamAnswers || {};
     const peopleById = Object.fromEntries(
       data.profiles.map(profile => [profile.answerId, profile.answerName])
@@ -88,7 +89,7 @@
       row.innerHTML = `
         <div class="birthday-result-team">${escapeHtml(team.name)}</div>
         ${cells}
-        <div class="birthday-result-total">${correct} / 4</div>
+        <div class="birthday-result-total">${correct} / ${data.profiles.length}</div>
       `;
       table.appendChild(row);
     });
