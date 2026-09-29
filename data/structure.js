@@ -9,6 +9,15 @@
     ]
   }));
 
+  const tabooTaskGroups = Array.from({ length: 10 }, (_, index) => ({
+    id: `task-${index + 1}`,
+    title: `Задание ${index + 1}`,
+    scenes: [
+      { id: "prompt", title: "???" },
+      { id: "answer", title: "Ответ" }
+    ]
+  }));
+
   const musicQuizTaskGroups = Array.from({ length: 19 }, (_, index) => ({
     id: `task-${index + 1}`,
     title: `Трек ${index + 1}`,
@@ -72,40 +81,7 @@
               { id: "rules", title: "Свод правил" }
             ]
           },
-
-          { id: "task-1", title: "Задание 1", scenes: [
-            { id: "prompt", title: "???" },
-            { id: "answer", title: "Ответ" }
-          ]},
-          { id: "task-2", title: "Задание 2", scenes: [
-            { id: "prompt", title: "???" },
-            { id: "answer", title: "Ответ" }
-          ]},
-          { id: "task-3", title: "Задание 3", scenes: [
-            { id: "prompt", title: "???" },
-            { id: "answer", title: "Ответ" }
-          ]},
-          { id: "task-4", title: "Задание 4", scenes: [
-            { id: "prompt", title: "???" },
-            { id: "answer", title: "Ответ" }
-          ]},
-          { id: "task-5", title: "Задание 5", scenes: [
-            { id: "prompt", title: "???" },
-            { id: "answer", title: "Ответ" }
-          ]},
-          { id: "task-6", title: "Задание 6", scenes: [
-            { id: "prompt", title: "???" },
-            { id: "answer", title: "Ответ" }
-          ]},
-          { id: "task-7", title: "Задание 7", scenes: [
-            { id: "prompt", title: "???" },
-            { id: "answer", title: "Ответ" }
-          ]},
-          { id: "task-8", title: "Задание 8", scenes: [
-            { id: "prompt", title: "???" },
-            { id: "answer", title: "Ответ" }
-          ]},
-
+          ...tabooTaskGroups,
           {
             id: "results",
             title: "Завершение",

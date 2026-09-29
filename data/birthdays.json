@@ -27,6 +27,13 @@
       "displayName": "Марина",
       "participationMode": "office",
       "teamId": "marina"
+    },
+    {
+      "id": "maxim",
+      "name": "Перелыгин Максим Александрович",
+      "displayName": "Максим",
+      "participationMode": "office",
+      "teamId": "maxim"
     }
   ]
 }
