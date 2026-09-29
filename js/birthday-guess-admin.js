@@ -454,10 +454,42 @@
             <div class="game-info-heading">Результаты выведены</div>
             <div class="birthday-admin-results">${resultRows}</div>
           </div>
-          <button class="button button-secondary birthday-open-answers-btn">Изменить ответы</button>
+          <div class="birthday-result-actions">
+            <button class="button button-secondary birthday-open-answers-btn">Изменить ответы</button>
+            <button id="birthdayResetPublishedResultBtn" class="button button-danger">Сбросить результат</button>
+          </div>
         </div>
       `;
+
       box.querySelector(".birthday-open-answers-btn")?.addEventListener("click", openAnswersModal);
+
+      box.querySelector("#birthdayResetPublishedResultBtn")?.addEventListener("click", () => {
+        if (!confirm("Сбросить ответы команд и результат конкурса №4?")) return;
+
+        stopVoice(false);
+
+        api.commit(stateNext => {
+          stateNext.birthdayGuess = {
+            ...(stateNext.birthdayGuess || {}),
+            teamAnswers: {},
+            resultsVisible: false,
+            publishedAt: null
+          };
+
+          stateNext.current = {
+            type: "game",
+            systemId: null,
+            gameId: "game-4",
+            groupId: "intro",
+            sceneId: "title"
+          };
+
+          stateNext.admin.selectedGameId = "game-4";
+          stateNext.admin.openGroupByGame["game-4"] = "intro";
+          stateNext.activeTeamId = null;
+        });
+      });
+
       return;
     }
 

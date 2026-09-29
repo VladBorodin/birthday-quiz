@@ -250,3 +250,17 @@
     flex-direction: column;
   }
 }
+
+
+.birthday-result-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+@media (max-width: 900px) {
+  .birthday-result-actions {
+    justify-content: flex-start;
+  }
+}
